@@ -1,5 +1,5 @@
 overwrite: true
-schema: "https://api.spacex.land/graphql/"
+schema: "https://api.spacex.land/graphql"
 documents: "src/**/*.graphq"
 generates:
   src/generated/graphql.ts:
