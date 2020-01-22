@@ -1,4 +1,7 @@
 import gql from 'graphql-tag';
+import { Injectable } from '@angular/core';
+import * as Apollo from 'apollo-angular';
+import { MutationOptionsAlone, QueryOptionsAlone, SubscriptionOptionsAlone, WatchQueryOptionsAlone } from 'apollo-angular/types';
 export type Maybe<T> = T | null;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -1265,3 +1268,43 @@ export type Volume = {
   cubic_meters?: Maybe<Scalars['Int']>,
 };
 
+export type GetRocketsQueryVariables = {};
+
+
+export type GetRocketsQuery = (
+  { __typename?: 'Query' }
+  & { rockets: Maybe<Array<Maybe<(
+    { __typename?: 'Rocket' }
+    & Pick<Rocket, 'name' | 'id' | 'description' | 'company' | 'first_flight' | 'cost_per_launch' | 'country' | 'wikipedia'>
+    & { diameter: Maybe<(
+      { __typename?: 'Distance' }
+      & Pick<Distance, 'meters'>
+    )> }
+  )>>> }
+);
+
+export const GetRocketsDocument = gql`
+    query getRockets {
+  rockets {
+    name
+    id
+    diameter {
+      meters
+    }
+    description
+    company
+    first_flight
+    cost_per_launch
+    country
+    wikipedia
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class GetRocketsGQL extends Apollo.Query<GetRocketsQuery, GetRocketsQueryVariables> {
+    document = GetRocketsDocument;
+    
+  }
