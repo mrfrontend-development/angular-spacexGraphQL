@@ -1,4 +1,6 @@
-# SpacexGraphQL
+# Dive into GraphQL w/ Apollo Client by building a SpaceX 🚀 app in Angular 8
+
+This repo is build for the follow blogpost: https://itnext.io/dive-into-graphql-w-apollo-client-by-building-a-spacex-app-in-angular-8-20e703c93f0a
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
 
